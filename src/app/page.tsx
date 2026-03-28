@@ -2,10 +2,11 @@
 
 import React from 'react';
 import FloatingNavbar from '@/components/FloatingNavbar';
+import ResumeAnalyzer from '@/components/ResumeAnalyzer';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full flex flex-col overflow-hidden bg-[#061a0b]">
+    <main className="relative h-screen w-full flex flex-col overflow-hidden bg-[#061a0b]">
       
       {/* Precise Background Glows from ResumeApp lines 47-56 */}
       <div className="fixed top-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[600px] pointer-events-none z-0 opacity-60" 
@@ -15,13 +16,10 @@ export default function Home() {
 
       <FloatingNavbar />
 
-      <div className="flex-1 flex flex-col items-center justify-start px-10 pb-10 pt-40">
+      <div className="flex-1 flex flex-col items-center justify-center px-10 pb-10 pt-24 relative z-10">
         
-        {/* New Interface Placeholder */}
-        <div className="w-full max-w-[1100px] mt-10 min-h-[500px] flex flex-col items-center justify-center border-2 border-dashed border-white/5 rounded-[30px] bg-black/5 animate-in fade-in zoom-in duration-1000">
-           {/* READY FOR NEW IMPLEMENTATION */}
-           <div className="text-[10px] font-mono text-white/20 tracking-[0.5em] uppercase">Ready for Neural Interface Upgrade</div>
-        </div>
+        {/* Dynamic Neural Interface Dashboard */}
+        <ResumeAnalyzer />
       </div>
 
       {/* Glow Lines - Simplified Decorative Background */}

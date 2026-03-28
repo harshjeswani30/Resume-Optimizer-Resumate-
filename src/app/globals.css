@@ -1,24 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;0,900;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import "tailwindcss";
-
-@font-face {
-  font-family: 'Inter';
-  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-}
 
 :root {
   --background: #061a0b;
   --foreground: #ffffff;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
   background: #061a0b;
   background: radial-gradient(ellipse at 50% 0%, #13522a 0%, #0a2e14 30%, #061a0b 60%);
   color: #fff;
-  min-height: 100vh;
-  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
