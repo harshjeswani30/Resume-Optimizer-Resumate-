@@ -1,0 +1,14 @@
+% Project Test
+\documentclass{article}
+\begin{document}
+  <% if projects %>
+  \section{Projects}
+  <% for project in projects %>
+  \noindent
+  \textbf{<< project.name >>}
+  <% if project.tech %>
+  \ \textcolor{lightgray}{| \textit{<< project.tech >>}}
+  <% endif %>
+  <% endfor %>
+  <% endif %>
+\end{document}

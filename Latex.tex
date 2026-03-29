@@ -1,0 +1,306 @@
+%-------------------------
+% Resume in Latex
+% Author : Matty
+% Based on: https://github.com/jakegut/resume (which was itself based on https://github.com/sb2nov/resume)
+% License : MIT
+%------------------------
+\documentclass[letterpaper,101.9cm]{article}
+    \usepackage{graphicx} % Required for \includegraphics
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.8in} % Default was -.5in
+\addtolength{\textheight}{1.4in}
+
+% Reduce section and subsection spacing
+
+% Reduce space in lists
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1.4pt}}
+  }
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-3pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-3pt}}
+
+
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+\input{glyphtounicode}
+
+% -------------------- FONT OPTIONS --------------------
+% sans-serif
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% serif
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-1in} % Default was -.5in
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\flushbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Subsection formatting
+\titleformat{\subsection}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{\hspace{-.15in}}{0em}{}[\color{black}\vspace{-8pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+% -------------------- CUSTOM COMMANDS --------------------
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\setlength{\footskip}{-0.5in}
+
+% -------------------- START OF DOCUMENT --------------------
+\begin{document}
+
+% -------------------- HEADING--------------------
+\vspace*{0.1cm}
+\begin{center}
+    \textbf{\Huge \scshape Harsh Jeswani} \\ \vspace{2pt}
+    \small 
+    \faIcon{phone} \href{tel:(+91)6394335020}{\underline{(+91)-6377228945}} \hspace{0.3cm} % Adjust spacing
+    \faIcon{envelope} \href{mailto:harshjeswani30@gmail.com}{\underline{harshjeswani30@gmail.com}} \hspace{0.3cm} % Adjust spacing
+    \faIcon{code} \href{https://leetcode.com/u/Harshjeswani30/}{\underline{Leetcode}} \hspace{0.3cm} % Adjust spacing
+    \faIcon{linkedin} \href{https://www.linkedin.com/in/harshjeswani30/}{\underline{LinkedIn}}
+\end{center}
+
+
+
+
+% -------------------- EDUCATION --------------------
+\section{Education}
+  \resumeSubHeadingListStart
+  
+    \resumeSubheading
+      {Chandigarh University}{2022-2026}
+      {B.E. Computer Science}{Current CGPA: 7.67}
+\vspace{+1pt}
+      \resumeSubheading
+      {Sir Padampat Singhania School, Kota}{2022}
+      {Class XII - Science}{Percentage: 84}
+      \vspace{+1pt}
+
+      \resumeSubheading
+      {Sir Padampat Singhania School, Kota}{2022}
+      {Class X}{Percentage: 90}
+      
+  
+
+    \vspace{+3pt}
+
+  \resumeSubHeadingListEnd
+
+
+% -------------------- SKILLS --------------------
+\section{Technical Proficiency/Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+\vspace{+1pt}
+    
+    \textbf{Programming Languages}{: C, C++, Java, JavaScript, SQL, HTML, CSS, C#} \\
+
+\textbf{Backend Technologies}{: Node.js, Express.js, RESTful APIs, ASP.NET Core} \\
+
+\textbf{Databases}{: MySQL, MongoDB , PostgreSQL} \\
+
+\textbf{Tools \& Platforms}{: Git, GitHub, Postman, VS Code, Figma, JMeter (basic load testing)} \\
+
+\textbf{Computer Science Concepts}{: Data Structures, Algorithms, Object-Oriented Programming, DBMS , Operating Systems, OOP, DBMS, OS, Design Patterns, Microservices Architecture} \\
+
+\textbf{WordPress \& Web Technologies}{: WordPress Plugin Development, PHP, MYSQL, Rest API \& AJAX} \\
+     
+     % \textbf{Libraries}{: pandas, NumPy, Matplotlib}
+     
+    }}
+ \end{itemize}
+
+% -------------------- PROJECTS --------------------
+\begingroup
+\large 
+\section{Projects}
+    \resumeSubHeadingListStart
+
+        \resumeProjectHeading
+        {\textbf{IELTS Education Platform} $|$ \footnotesize\emph{Next.js, Three.js, Supabase, Tailwind CSS, TypeScript, Web3Auth}}{\href{https://www.ieltsachievers.com/}{{\underline{Link}}}}
+
+        
+        \resumeItemListStart
+
+            \resumeItem{Developed a large-scale education platform serving 5,000+ students with dynamic content management and interactive 3D animations.}
+
+            \resumeItem{Worked in an Agile development environment with sprint planning, daily stand-ups, and iterative feature releases.}
+
+            \resumeItem{Resolved production-level bugs and optimized database queries under tight deadlines, improving system reliability.}
+
+
+
+            \resumeItem{Achieved 95+ Lighthouse performance scores by optimizing image delivery, database queries, and lazy-loading
+components.}
+
+          \resumeItemListEnd
+
+          
+
+
+    \resumeProjectHeading
+    {\textbf{LegacyLink Alumni Platform} $|$ \footnotesize\emph{Next.js, React, TypeScript, Node.js, SQL, pnpm, PostCSS}}{\href{https://legacy-link-alumni-platform.vercel.app/}{{\underline{Link}}}}
+    \resumeItemListStart
+    \resumeItem{Developed and maintained the LegacyLink Alumni Platform, enabling over 5,000 alumni to connect, verify profiles, and participate in career events, resulting in a 40\% increase in active user engagement within six months.}
+    \resumeItem{Implemented robust admin and verification systems that reduced manual approval time by 60\%, streamlining onboarding for more than 1,200 new users per quarter.}
+
+  \resumeItemListEnd
+
+
+          
+    
+    \resumeProjectHeading
+    {\textbf{AI Chatbot Application} $|$ \footnotesize\emph{React, TypeScript, GraphQL, Nhost, Hasura, n8n}}{\href{https://chatbot-ai-integration.netlify.app/signin}{\underline{Link}}}
+    \resumeItemListStart
+        \resumeItem{Developed a real-time chatbot system with AI integration using OpenRouter API and GraphQL subscriptions.}
+
+          
+    \resumeItem{Reduced API latency by 50\% and improved chat reliability Designed microservices-based architecture with service separation, API gateway pattern, and asynchronous communication.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\textbf{ NFT Gaming Platform} $|$ \footnotesize\emph{React, TypeScript, Material-UI, Vite}}{\href{https://figma-project-one-iota.vercel.app/}{\underline{Link}}}
+    \resumeItemListStart
+        \resumeItem{Engineered NFT-based gaming platform with marketplace, leaderboards, and custom theming}
+
+        \resumeItem{Designed and implemented scalable frontend architecture for NFT-based gaming system.}
+
+
+
+        \resumeItem{Achieved 10x faster build speed using Vite and TypeScript, boosting overall UX performance by 35\%.}
+
+
+
+
+        
+
+       
+    \resumeSubHeadingListEnd
+\endgroup
+
+% -------------------- ACHIEVEMENTS--------------------
+% -------------------- ACHIEVEMENTS --------------------
+% -------------------- ACHIEVEMENTS --------------------
+% -------------------- ACHIEVEMENTS --------------------
+% -------------------- ACHIEVEMENTS --------------------
+% -------------------- ACHIEVEMENTS --------------------
+\section{Achievements \& Certifications}
+
+\begin{itemize}[label=\textbullet,leftmargin=*]
+  
+  \item {Achieved \href{}{\textbf{Top 5\% Topper of NPTEL – Foundations of Cloud, IoT, and Edge ML}.}}
+  
+  \item {Ranked \textbf{6th/1000} in \textbf{Hack-o-Octa} (Oct 2023) — \textbf{Team Lead}.}
+  
+  \item {Ranked \textbf{14th/700} in \textbf{HackNWin} (Mar 2024) — \textbf{Team Lead}.}
+
+  \item {\textbf{Cloud Computing: A Hands-on Approach with AWS Cloud} (July 2024) — \textbf{In-House Summer Training, CSE Department}.}
+
+
+
+\end{itemize}
+
+
+
+\vspace{+0.361pt}
+\vspace{-14pt}
+\vspace{6pt}
+% -------------------- EXTRACURRICULAR --------------------
+\section{Co-curricular / Extracurricular}
+
+\vspace{-5pt}
+\resumeProjectHeading
+          {\textbf{Innovators Club} $|$ \footnotesize\emph{Tech Lead}\vspace{8pt}}{June. 2024 -- Present}
+          \vspace{2pt}
+          {\small{
+          Led club initiatives focused on Competitive Programming and Hackathons.
+}}
+\vspace{-7pt}
+\vspace{4pt}
+ \resumeProjectHeading
+          {\textbf{Code Quest}\vspace{8pt} $|$ \footnotesize\emph{Organizer}}{Feb. 2025}
+          \small{ Coordinated a competitive coding event fostering collaboration, resulting in 150+ participants..}
+\vspace{-5pt}
+\vspace{4pt}
+
+    \resumeSubHeadingListEnd 
+
+\end{document}

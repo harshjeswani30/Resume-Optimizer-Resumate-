@@ -1,0 +1,73 @@
+﻿% ============================================================
+%  FIXED RESUME LaTeX TEMPLATE - DO NOT MODIFY STRUCTURE
+%  Templating: Jinja2 with custom delimiters (<< >>, <% %>)
+% ============================================================
+\documentclass[letterpaper,10.5pt]{article}
+\usepackage[top=0.6in, bottom=0.6in, left=0.65in, right=0.65in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\definecolor{accent}{RGB}{31, 73, 125}
+\definecolor{lightgray}{RGB}{100, 100, 100}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\color{accent}\titlerule]
+\titlespacing{\section}{0pt}{10pt}{4pt}
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.2em, label=\textbullet}
+\pagestyle{empty}
+
+\begin{document}
+\begin{center}
+  {\Huge\bfseries << name >>} \\[6pt]
+  \small
+  <% if email %>\faEnvelope\ \href{mailto:<< email >>}{<< email >>}<% endif %>
+  <% if phone %>\quad \faPhone\ << phone >><% endif %>
+  <% if linkedin %>\quad \faLinkedin\ \href{https://<< linkedin >>}{<< linkedin >>}<% endif %>
+  <% if github %>\quad \faGithub\ \href{https://<< github >>}{<< github >>}<% endif %>
+\end{center}
+
+<% if summary %>
+\section{Summary}
+<< summary >>
+<% endif %>
+
+<% if experience %>
+\section{Experience}
+<% for job in experience %>
+\noindent \textbf{<< job.title >>} \hfill \textcolor{lightgray}{<< job.duration >>} \\
+\textit{<< job.company >>}
+<% if job.bullets %>
+\begin{itemize}
+  <% for bullet in job.bullets %>\item << bullet >>
+  <% endfor %>
+\end{itemize}
+<% endif %>
+\vspace{4pt}
+<% endfor %>
+<% endif %>
+
+<% if education %>
+\section{Education}
+<% for edu in education %>
+\noindent \textbf{<< edu.institution >>} \hfill \textcolor{lightgray}{<< edu.year >>} \\
+\textit{<< edu.degree >>}
+<% if edu.year %>\ \textcolor{lightgray}{(<< edu.year >>)}<% endif %>
+\vspace{4pt}
+<% endfor %>
+<% endif %>
+
+<% if skills %>
+\section{Skills}
+\begin{itemize}[label={}]
+  <% if skills.languages %>\item \textbf{Languages:} << skills.languages | join(', ') >><% endif %>
+  <% if skills.frameworks %>\item \textbf{Frameworks:} << skills.frameworks | join(', ') >><% endif %>
+  <% if skills.tools %>\item \textbf{Tools:} << skills.tools | join(', ') >><% endif %>
+\end{itemize}
+<% endif %>
+\end{document}

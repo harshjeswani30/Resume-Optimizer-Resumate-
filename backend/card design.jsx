@@ -1,23 +1,36 @@
-'use client';
-
 import { useState, useRef, useCallback } from "react";
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-  .analyzer-container {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #0a0f0a;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .container {
     background: linear-gradient(145deg, #0d1f0d, #0a180a);
     border: 1px solid #1a3a1a;
     border-radius: 16px;
-    padding: 24px;
+    padding: 30px;
     width: 100%;
     max-width: 1240px;
     position: relative;
     overflow: hidden;
-    margin-top: 12px;
   }
 
-  .analyzer-container::before {
+  .container::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -30,8 +43,8 @@ const styles = `
 
   .top-section {
     display: flex;
-    gap: 16px;
-    margin-bottom: 12px;
+    gap: 20px;
+    margin-bottom: 20px;
   }
 
   .source-panel {
@@ -63,12 +76,12 @@ const styles = `
     background: linear-gradient(145deg, #0b1a0b, #091409);
     border: 1px solid #1a3a1a;
     border-radius: 12px;
-    padding: 24px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 220px;
+    min-height: 280px;
     cursor: pointer;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -85,15 +98,15 @@ const styles = `
   }
 
   .upload-icon {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     background: linear-gradient(145deg, #0d2a0d, #0a1f0a);
     border: 2px solid #1a4a1a;
-    border-radius: 12px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
   }
 
   .upload-icon svg {
@@ -139,21 +152,21 @@ const styles = `
     background: linear-gradient(145deg, #0b1a0b, #091409);
     border: 1px solid #1a3a1a;
     border-radius: 12px;
-    min-height: 220px;
+    min-height: 280px;
     position: relative;
   }
 
   .target-textarea {
     width: 100%;
-    height: 220px;
+    height: 280px;
     background: transparent;
     border: none;
     outline: none;
     resize: none;
-    padding: 20px;
+    padding: 24px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #5a9a5a;
     letter-spacing: 0.3px;
   }
@@ -166,11 +179,10 @@ const styles = `
     background: linear-gradient(145deg, #0b1a0b, #091409);
     border: 1px solid #1a3a1a;
     border-radius: 12px;
-    padding: 12px 20px;
+    padding: 16px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
   }
 
   .status-info {
@@ -283,7 +295,7 @@ const styles = `
       gap: 16px;
     }
 
-    .analyzer-container {
+    .container {
       padding: 16px;
     }
   }
@@ -323,9 +335,6 @@ const SpinnerSVG = () => (
             r="10"
             strokeDasharray="30 70"
             strokeDashoffset="0"
-            fill="none"
-            stroke="#0a1a0a"
-            strokeWidth="2.5"
         />
     </svg>
 );
@@ -338,7 +347,7 @@ const CompleteSVG = () => (
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
-function formatFileSize(bytes: number) {
+function formatFileSize(bytes) {
     if (bytes === 0) return "0.00KB";
     const k = 1024;
     if (bytes < k) return bytes + "B";
@@ -355,17 +364,17 @@ const VALID_TYPES = [
 // ── main component ────────────────────────────────────────────────────────────
 
 export default function ResumeAnalyzer() {
-    const fileInputRef = useRef<HTMLInputElement>(null);
+    const fileInputRef = useRef(null);
 
     const [isDragOver, setIsDragOver] = useState(false);
-    const [uploadedFile, setUploadedFile] = useState<{ name: string; size: number } | null>(null);
+    const [uploadedFile, setUploadedFile] = useState(null); // { name, size }
     const [jdText, setJdText] = useState("");
     const [analyzeState, setAnalyzeState] = useState("idle"); // idle | analyzing | complete
     const [tokenStatus, setTokenStatus] = useState("READY");
 
     // ── file handling ─────────────────────────────────────────────────────────
 
-    const handleFile = useCallback((file: File) => {
+    const handleFile = useCallback((file) => {
         const isValidType =
             VALID_TYPES.includes(file.type) ||
             /\.(pdf|docx|txt)$/i.test(file.name);
@@ -383,7 +392,7 @@ export default function ResumeAnalyzer() {
         setTokenStatus("LOADED");
     }, []);
 
-    const handleRemoveFile = (e: React.MouseEvent) => {
+    const handleRemoveFile = (e) => {
         e.stopPropagation();
         setUploadedFile(null);
         setTokenStatus("READY");
@@ -392,17 +401,17 @@ export default function ResumeAnalyzer() {
 
     // ── drag & drop ───────────────────────────────────────────────────────────
 
-    const handleDragOver = (e: React.DragEvent) => {
+    const handleDragOver = (e) => {
         e.preventDefault();
         setIsDragOver(true);
     };
 
-    const handleDragLeave = (e: React.DragEvent) => {
+    const handleDragLeave = (e) => {
         e.preventDefault();
         setIsDragOver(false);
     };
 
-    const handleDrop = (e: React.DragEvent) => {
+    const handleDrop = (e) => {
         e.preventDefault();
         setIsDragOver(false);
         if (e.dataTransfer.files.length > 0) {
@@ -410,18 +419,17 @@ export default function ResumeAnalyzer() {
         }
     };
 
-    const handleDropZoneClick = (e: React.MouseEvent) => {
-        const target = e.target as HTMLElement;
+    const handleDropZoneClick = (e) => {
         if (
-            target.classList.contains("remove-file") ||
-            target.closest(".remove-file")
+            e.target.classList.contains("remove-file") ||
+            e.target.closest(".remove-file")
         )
             return;
         fileInputRef.current?.click();
     };
 
-    const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files.length > 0) handleFile(e.target.files[0]);
+    const handleFileInputChange = (e) => {
+        if (e.target.files.length > 0) handleFile(e.target.files[0]);
     };
 
     // ── analyze ───────────────────────────────────────────────────────────────
@@ -468,9 +476,9 @@ export default function ResumeAnalyzer() {
     return (
         <>
             {/* Inject CSS once */}
-            <style dangerouslySetInnerHTML={{ __html: styles }} />
+            <style>{styles}</style>
 
-            <div className="analyzer-container">
+            <div className="container">
                 <div className="top-section">
                     {/* ── Source Document Panel ── */}
                     <div className="source-panel">
